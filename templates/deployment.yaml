@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: jagaproj     
+  labels:
+    name: springboot
+  name: springboot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        name: springboot       
+  template:
+    metadata:
+      labels:
+        name: springboot
+    spec:
+      containers:
+      - image: jaga96/spring-mongo:1
+        name: springboot
+        ports:
+        - name: springboot
+          containerPort: 8080
